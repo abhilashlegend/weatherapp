@@ -1,3 +1,4 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";    
 /* You can add global styles to this file, and also import other style files */
 :root {
     --blue-1: #3c429E;
@@ -118,7 +119,7 @@ body {
 }
 
 .info-block-label img {
-    width: 1em;
+    width: 1.5em;
 }
 
 .info-block-label span {
