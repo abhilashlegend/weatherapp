@@ -1,8 +1,14 @@
-<div class="container">
+<div class="search">
+  <form action="">
+    <input type="text" placeholder="Search city" />
+  </form>
+</div>
+
+<div class="container" *ngIf="weatherData">
   <div class="upper-data">
     <div class="weather-data">
-      <div class="location">Hubli</div>
-      <div class="temperature">{{ 14 | number: '1.0-0' }}<sup>o</sup>C</div>
+      <div class="location">{{ weatherData.name }}</div>
+      <div class="temperature">{{ weatherData.main.temp | number: '1.0-0' }}<sup>o</sup>C</div>
     </div>
   </div>
   <div class="lower-data">
@@ -15,7 +21,7 @@
           <span>min</span>
         </div>
         <div class="info-block-value">
-          10<sup>o</sup>C
+          {{ weatherData.main.temp_min }}<sup>o</sup>C
         </div>
       </div>
 
@@ -25,7 +31,7 @@
           <span>max</span>
         </div>
         <div class="info-block-value">
-          20<sup>o</sup>C
+          {{ weatherData.main.temp_max }}<sup>o</sup>C
         </div>
       </div>
 
@@ -35,7 +41,7 @@
           <span>humidity</span>
         </div>
         <div class="info-block-value">
-          77%
+          {{ weatherData.main.humidity }}
         </div>
       </div>
 
@@ -45,7 +51,7 @@
           <span>wind</span>
         </div>
         <div class="info-block-value">
-          77%
+          {{ weatherData.wind.speed }}
         </div>
       </div>
     </div>
