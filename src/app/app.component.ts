@@ -15,18 +15,24 @@ export class AppComponent implements OnInit {
 
   weatherData?: WeatherData;
 
+  defaultCity:string = 'Bengaluru'
+
   ngOnInit(): void {
-    this.weatherService.getWeatherData('Hubli').subscribe({
+    this.getWeatherData(this.defaultCity);    
+  }
+
+  onSubmit() {
+    this.getWeatherData(this.defaultCity);    
+  }
+
+  private getWeatherData(city: string){
+    this.weatherService.getWeatherData(city).subscribe({
       next: response => {
         this.weatherData = response;
         this.weatherData.main.temp = Math.floor(response.main.temp);
         console.log(this.weatherData);
       }
     });
-  }
-
-  onSubmit() {
-
   }
 
   title = 'Angular Weather App';

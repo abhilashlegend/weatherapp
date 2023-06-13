@@ -14,7 +14,7 @@ export class WeatherService {
   
 
   getWeatherData(city: string): Observable<WeatherData> {
-    return this.http.get<WeatherData>(environment.weatherApiBaseUrl, {params: new HttpParams().set('q', city).set('units', 'metric').set('mode','json')
+    return this.http.get<WeatherData>('http://api.openweathermap.org/data/2.5/weather', {params: new HttpParams().set('q', city).set('units', 'metric').set('mode','json')
   .set('appid','8776c81dc9ae5065873a65c7eca2078b')})
   }
 }
