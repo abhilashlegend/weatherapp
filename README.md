@@ -84,6 +84,52 @@ Steps to dockerizing the angular App
 26
 ```
 
+3.	Run ng build command to build the angular application
+4.	Use the following command to generate the Docker image for the Angular application using Dockerfile:
+Example: docker build -t dockerhub_name/image_name:tag dockerfile_location
+
+```
+docker build -t abhilash456a/weatherapp:latest .
+```
+5.	Get the list of Docker images using the following command:
+
+```
+Docker image ls
+```
+
+6.	You need to push the Docker image to Docker Hub or any container registry(AWS ECR, Azure CR) if you want to deploy the application on the Cloud server.
+To push the Docker image to the Docker hub you need a Docker hub account. Once you created a Docker hub account, then log in to the Docker hub on your terminal.
+
+```
+docker login
+```
+
+7.	Use the following command to push the Docker image to Docker Hub:
+
+```
+docker push abhilash456a/weatherapp:latest
+```
+
+8. Run Docker Container
+Run the Angular application using the following command
+
+```
+    docker run -d -p 80:80 abhilash456a/weatherapp:latest
+```
+
+   It runs on port number 80. Access the Angular application using the IP                                      address and port number.
+    http://localhost:80/ 
+
+9. list the containers by below command->
+
+```
+docker ps
+```
+
+
+
+
+
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
