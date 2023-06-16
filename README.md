@@ -130,10 +130,187 @@ docker ps
 
 
 
-## Running end-to-end tests
+## Deploying on AWS EC2 Instance
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Steps to deploy on AWS EC2 Instance
 
-## Further help
+1.	open https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+2.	  Click on Linux/MacOS or Windows as per your Operating system
+    For Windows:
+    Download and run the AWS CLI MSI installer for Windows (64-bit)
+
+3.	To confirm the installation, open the Start menu, search for cmd to open a command prompt window, and at the command prompt use the aws --version command.
+    C:\> aws --version
+
+4.	Go to AWS and login to your account and select EC2 Instance 	
+Click services -> EC2 (or search for it if unable to find)
+
+[Image]
+
+5.	 Click EC2 dashboard->Launch instance
+
+[Image]
+
+a.	Give name as weatherapp 
+
+[Image]
+
+b.	In Application and OS Images select Ubuntu 
+Amazon Machine Image -> Ubuntu Server 22.04 LTS (HVM), SSD Volume Type ( Free Tier eligible) 
+
+[Image]
+
+c.	Instance type->t2.micro (free tier eligible)
+
+[Image]
+
+d.	Keypair (login) 
+
+A create key pair window will open. 
+*	Enter key pair name -> weatherappkeys. 
+*	Select Key pair type -> RSA
+*	Private key file format -> .pem
+*	Click create new Key pair
+
+[Image]
+
+
+The keys file(weatherappkeys.pem) will get downloaded in your system, you will need them later to connect to EC2 instance.
+
+6.	 create a folder in c: by name weatherappkeys. Save the weatherappkeys.pem file in c:/weatherappkeys
+7.	Click Launch Instance(No changes required for other settings )
+
+[Image]
+
+[Image]
+
+8.	Click on instances
+
+[Image]
+
+9.	To connect this instance select checkbox before this row and click on connect
+
+[Image]
+
+[Image]
+
+Click on SSH client copy the command 
+copy the command below Example:
+
+```
+ssh -i "weatherappkeys.pem" ubuntu@ec2-44-193-73-144.compute-1.amazonaws.com
+```
+
+10.	 Open git bash(you can search for it in search area next to start menu)
+browse to location where u saved the keys i.e c:/weatherappkeys by
+
+> cd c:
+> cd weatherappkeys
+
+To check ur current location
+>pwd
+
+[Image]
+
+11.	Now paste(use right click paste as ctrl v will not work) the command copied earlier
+
+```
+ssh -i "weatherappkeys.pem" ubuntu@ec2-44-193-73-144.compute-1.amazonaws.com
+```
+
+[Image]
+
+[Image]
+
+12.	 Again give same command i.e.
+
+[Image]
+
+13.	Run the following command to install NGINX
+
+```
+sudo -s 
+sudo apt update 
+sudo apt install nginx 
+```
+
+14.	Check if git is installed
+
+```
+git --version
+```
+To install git in EC2 virtual machine->
+```
+ sudo apt install git -y
+```
+
+To check if git is successfully installed run the command again 
+
+```
+git –-version
+```
+
+15.	Install docker in this virtual EC2 machine
+// install most recent package
+
+```
+sudo apt install docker.io
+```
+
+Check if docker was installed by running the command 
+
+```
+docker --version
+```
+
+[Image]
+
+16.	 Start the service docker
+
+```
+sudo service docker start
+```
+
+17.	 Pull the docker image
+
+```
+sudo docker pull abhilash456a/weatherapp
+```
+
+[Image]
+
+18.	List the images
+
+```
+sudo docker images
+```
+
+[Image]
+
+* click instance->security tab-> click security groups link sg-04b7f86c89500d771 (launch-wizard-1) 
+
+[Image]
+
+* Go to inbound rules tab and click on edit inbound rules 
+
+[Image]
+
+* Click Add Rule
+
+[Image]
+
+Select Custom TCP, Port Range 8081, change custom to Anywhere-IPv4 
+And save changes
+
+19.	In gitbash run the container using the command
+
+```
+sudo docker run -d -p 8081:80 abhilash456a/weatherapp
+```
+
+20.	 Check your public ip address and go to port 8081 Eg: http://54.196.220.154:8081
+
+[Image]
+
+
