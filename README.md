@@ -29,7 +29,8 @@ Users can open the weatherapp by going to docker desktop and selecting
 the container that’s running and click on vertical dot menu and select 
 open in browser option to view inside the browser. 
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/a07ca428-5212-4d76-9648-acc2898e43d7)
+
 
 To Download the source users can download from the github repository 
 at https://github.com/abhilashlegend/weatherapp.git . After 
@@ -39,7 +40,8 @@ The angular app is usually hosted at http://localhost:4200
 
 ## Home Page
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/c6fe5ca3-891a-4487-ba35-6914c1da9540)
+
 
 Weather App is a single page application that displays weather details. 
 On the home page you can see the details of default city that is 
@@ -114,20 +116,16 @@ docker push abhilash456a/weatherapp:latest
 Run the Angular application using the following command
 
 ```
-    docker run -d -p 80:80 abhilash456a/weatherapp:latest
+docker run -d -p 80:80 abhilash456a/weatherapp:latest
 ```
 
-   It runs on port number 80. Access the Angular application using the IP                                      address and port number.
-    http://localhost:80/ 
+It runs on port number 80. Access the Angular application using the IP address and port number. http://localhost:80/ 
 
 9. list the containers by below command->
 
 ```
 docker ps
 ```
-
-
-
 
 
 ## Deploying on AWS EC2 Instance
@@ -146,26 +144,34 @@ Steps to deploy on AWS EC2 Instance
 4.	Go to AWS and login to your account and select EC2 Instance 	
 Click services -> EC2 (or search for it if unable to find)
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/d186ae76-09b8-478d-9611-1537be363e4f)
+
 
 5.	 Click EC2 dashboard->Launch instance
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/e763539f-e204-42d0-aefd-010a05b68e08)
+
 
 a.	Give name as weatherapp 
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/b94f4a83-8ede-41c8-baf3-86dc08ab95f6)
+
 
 b.	In Application and OS Images select Ubuntu 
 Amazon Machine Image -> Ubuntu Server 22.04 LTS (HVM), SSD Volume Type ( Free Tier eligible) 
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/2315cdb4-3329-44a0-a28e-4ea8e58da12c)
+
 
 c.	Instance type->t2.micro (free tier eligible)
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/e0f2a942-1884-4060-86b1-67b30d73a280)
+
 
 d.	Keypair (login) 
+
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/7b74c5d7-abfc-48af-b167-7e54c94036ab)
+
 
 A create key pair window will open. 
 *	Enter key pair name -> weatherappkeys. 
@@ -173,7 +179,7 @@ A create key pair window will open.
 *	Private key file format -> .pem
 *	Click create new Key pair
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/ed80ca44-7e6a-4513-a74a-84ab0431ae84)
 
 
 The keys file(weatherappkeys.pem) will get downloaded in your system, you will need them later to connect to EC2 instance.
@@ -181,19 +187,22 @@ The keys file(weatherappkeys.pem) will get downloaded in your system, you will n
 6.	 create a folder in c: by name weatherappkeys. Save the weatherappkeys.pem file in c:/weatherappkeys
 7.	Click Launch Instance(No changes required for other settings )
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/2ae9e6fc-b09b-4f07-838d-4449eac9d3e0)
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/51bbcde9-81a8-4f97-a223-55bd6110c17a)
+
 
 8.	Click on instances
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/09a224c6-8cda-42b1-8022-1f046687a769)
+
 
 9.	To connect this instance select checkbox before this row and click on connect
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/45e9b8a2-846a-4254-a156-f27efb6c9e47)
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/75964318-ad5b-4e91-a1a5-164345cea20b)
+
 
 Click on SSH client copy the command 
 copy the command below Example:
@@ -211,7 +220,8 @@ browse to location where u saved the keys i.e c:/weatherappkeys by
 To check ur current location
 >pwd
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/77c7215c-32ba-4155-9bf3-8c31854b2466)
+
 
 11.	Now paste(use right click paste as ctrl v will not work) the command copied earlier
 
@@ -219,13 +229,15 @@ To check ur current location
 ssh -i "weatherappkeys.pem" ubuntu@ec2-44-193-73-144.compute-1.amazonaws.com
 ```
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/cace721b-d0c1-427f-b37f-d2e89f7e199a)
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/cec60333-0548-45bc-95bd-1d971c280036)
+
 
 12.	 Again give same command i.e.
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/b235bc77-6601-4bb6-bd9a-11101f961791)
+
 
 13.	Run the following command to install NGINX
 
@@ -263,8 +275,8 @@ Check if docker was installed by running the command
 ```
 docker --version
 ```
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/f43e209b-0c8e-48c9-a6e0-6cb71022665c)
 
-[Image]
 
 16.	 Start the service docker
 
@@ -278,7 +290,8 @@ sudo service docker start
 sudo docker pull abhilash456a/weatherapp
 ```
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/134041f4-c475-42e8-84c9-50e820a04ea3)
+
 
 18.	List the images
 
@@ -286,19 +299,22 @@ sudo docker pull abhilash456a/weatherapp
 sudo docker images
 ```
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/ac195b0f-87a6-4540-adba-dc43ffe14f17)
+
 
 * click instance->security tab-> click security groups link sg-04b7f86c89500d771 (launch-wizard-1) 
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/2cce2bf6-8746-4800-9f66-375afdc77740)
+
 
 * Go to inbound rules tab and click on edit inbound rules 
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/9d28f064-64a7-4ba8-b8ac-76ab58b2b5ed)
 
 * Click Add Rule
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/891c6be2-118b-4f14-9052-5322e168b2f7)
+
 
 Select Custom TCP, Port Range 8081, change custom to Anywhere-IPv4 
 And save changes
@@ -311,6 +327,7 @@ sudo docker run -d -p 8081:80 abhilash456a/weatherapp
 
 20.	 Check your public ip address and go to port 8081 Eg: http://54.196.220.154:8081
 
-[Image]
+![image](https://github.com/abhilashlegend/weatherapp/assets/24253084/01b7dcc9-8ccd-4f5c-82ae-779642815276)
+
 
 
