@@ -1,14 +1,33 @@
-# Weatherapp
+# Weather App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
+Weather App is Angular Based web application which can be used to get latest 
+weather information like temperature, min and max temperature, humidity 
+and wind. Users can search for their city weather by entering on search city 
+text field.
 
-## Development server
+## Technology Used
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Visual Studio
+* Angular
+* Docker
+* Node
+* HTML
+* CSS
+* Open Weather API
+* AWS EC2 Instance 
 
-## Code scaffolding
+## Installation Instructions
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Users need to install docker on their machine and run the following 
+command
+
+```
+docker run -d -p 80:80 abhilash456a/weatherapp:latest
+```
+
+Users can open the weatherapp by going to docker desktop and selecting 
+the container that’s running and click on vertical dot menu and select 
+open in browser option to view inside the browser. 
 
 ## Build
 
